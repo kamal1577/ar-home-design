@@ -26,3 +26,15 @@ code {
   margin-right: 10px; /* Adjust this value as needed */
 }
 
+/* Custom styles for small screens */
+@media (max-width: 767px) {
+  .navbar-brand span {
+    font-size: 18px; /* Adjust the size of the app's name */
+  }
+
+  .navbar-brand img {
+    width: 30px;
+    height: 30px; /* Adjust the logo size */
+  }
+}
+

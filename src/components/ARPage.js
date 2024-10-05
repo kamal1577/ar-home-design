@@ -1,20 +1,13 @@
-import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import './ARPage.css'; // Custom CSS for ARPage
+import React from "react";
+import { Container, Row, Col } from "react-bootstrap";
 
 const ARPage = () => {
   return (
-    <Container className="ar-container text-center my-5">
+    <Container>
       <Row>
-        <Col>
-          <h1 className="display-4 mb-4">Explore AR Home Design</h1>
-          <p className="lead mb-4">
-            Ready to visualize your furniture and home designs? 
-            Use augmented reality to plan and perfect your dream space!
-          </p>
-          <p className="coming-soon">
-            The feature is coming soon! Stay tuned for updates.
-          </p>
+        <Col xs={12}>
+          <h1>AR Visualization</h1>
+          <p>Here you will be able to use Augmented Reality to visualize your home design ideas.</p>
         </Col>
       </Row>
     </Container>
@@ -22,4 +15,5 @@ const ARPage = () => {
 };
 
 export default ARPage;
+
 
