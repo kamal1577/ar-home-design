@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* index.css */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-nav .nav-link {
+  padding: 10px 15px; /* Adjust padding as needed */
+}
+/* index.css or a separate CSS file */
+.logo {
+  margin-right: 10px; /* Adjust this value as needed */
+}
