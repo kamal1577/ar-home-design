@@ -1,0 +1,21 @@
+.btn-primary:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .img-fluid:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  h1 {
+    font-size: 2.5rem; /* Larger font for headings */
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    font-size: 1.2rem; /* Increase paragraph size slightly */
+    line-height: 1.6;  /* Improve readability */
+    margin-bottom: 1.5rem;
+  }
+  
