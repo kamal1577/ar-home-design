@@ -18,4 +18,30 @@
     line-height: 1.6;  /* Improve readability */
     margin-bottom: 1.5rem;
   }
-  
+  /* Centering the text and adjusting the card layout */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Hover effect for images */
+.card-img-top {
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.1);
+}
+
+/* Adjusting the button style */
+.card-body button {
+  margin-top: auto;
+}
+
+/* Hover effect for button */
+.card-body button:hover {
+  background-color: #0056b3;
+  transition: background-color 0.3s ease;
+}

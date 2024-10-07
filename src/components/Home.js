@@ -1,11 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Row, Col, Image, Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom"; // Import Link
 import logo from "../assets/logo.png"; // Adjust the import path if needed
 import mainImage from "../assets/main-image.png"; // Example feature image
 import img2 from "../assets/img2.png"; // Example feature image
+import { analyzeImage } from "../services/apiService"; // Correct import
 import "./Home.css";
+
+
 const Home = () => {
+  const [analysisResults, setAnalysisResults] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null); // State to hold the selected image URL
+
+  const handleImageUpload = async (event) => {
+    const file = event.target.files[0]; // Get the uploaded file
+    if (file) {
+      // Create a FileReader to read the file
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setSelectedImage(reader.result); // Set the image URL to state
+      };
+      reader.readAsDataURL(file); // Read the file as a data URL
+
+      try {
+        const results = await analyzeImage(file); // Call the API service
+        setAnalysisResults(results); // Set the results to state
+      } catch (error) {
+        console.error("Error uploading image:", error);
+      }
+    }
+  };
+
   return (
     <Container className="my-5">
       <Row className="mb-4">
@@ -15,6 +40,22 @@ const Home = () => {
             This app allows you to visualize furniture and designs using Augmented Reality in your home.
             Get a real-time look at how items fit in your home, customize colors and styles, and save or share your designs.
           </p>
+          <input type="file" accept="image/*" onChange={handleImageUpload} /> {/* Image upload input */}
+          
+          {/* Display the selected image if available */}
+          {selectedImage && (
+            <div>
+              <h3>Selected Image:</h3>
+              <img src={selectedImage} alt="Uploaded" style={{ maxWidth: '100%', height: 'auto' }} /> {/* Display image */}
+            </div>
+          )}
+          
+          {analysisResults && (
+            <div>
+              <h3>Analysis Results:</h3>
+              <pre>{JSON.stringify(analysisResults, null, 2)}</pre> {/* Display results */}
+            </div>
+          )}
         </Col>
         <Col xs={12} md={4}>
           <Image 
@@ -22,58 +63,11 @@ const Home = () => {
             alt="AR Home Design Logo" 
             className="img-fluid rounded shadow" 
             role="img"
-            aria-label = "AR Home Design logo"
+            aria-label="AR Home Design logo"
           />
         </Col>
       </Row>
-      <Row>
-        <Col xs={12}>
-          <h3>Features:</h3>
-        </Col>
-      </Row>
-      <Row>
-        <Col xs={12} md={4}>
-          <Link to="/details/real-time-visualization"> {/* Link to details page */}
-            <Card className="mb-4 d-flex flex-column">
-              <Card.Img variant="top" src={mainImage} alt="Real-Time Visualization" />
-              <Card.Body className="text-center">
-                <Card.Title>Real-Time Visualization</Card.Title>
-                <Card.Text>
-                  Visualize furniture in real-time using your camera.
-                </Card.Text>
-                <Button variant="primary">Learn More</Button>
-              </Card.Body>
-            </Card>
-          </Link>
-        </Col>
-        <Col xs={12} md={4}>
-          <Link to="/details/customization-options"> {/* Link to details page */}
-            <Card className="mb-4 d-flex flex-column">
-              <Card.Img variant="top" src={img2} alt="Customization Options" />
-              <Card.Body className="text-center">
-                <Card.Title>Customization Options</Card.Title>
-                <Card.Text>
-                  Customize colors and styles to match your decor.
-                </Card.Text>
-                <Button variant="primary">Learn More</Button>
-              </Card.Body>
-            </Card>
-          </Link>
-        </Col>
-        <Col xs={12} md={4}>
-          <Link to="/details/save-share-designs"> {/* Link to details page */}
-            <Card className="mb-4 d-flex flex-column">
-              <Card.Body className="text-center">
-                <Card.Title>Save & Share Designs</Card.Title>
-                <Card.Text>
-                  Save and share your designs with friends.
-                </Card.Text>
-                <Button variant="primary">Learn More</Button>
-              </Card.Body>
-            </Card>
-          </Link>
-        </Col>
-      </Row>
+      {/* Remaining code... */}
     </Container>
   );
 };
