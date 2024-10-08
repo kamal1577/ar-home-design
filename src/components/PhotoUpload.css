@@ -1,0 +1,62 @@
+
+
+
+
+.photo-upload-container {
+    text-align: center;
+    margin: 20px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.drop-area {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.drop-area p {
+    font-size: 16px;
+    color: #666;
+}
+
+.choose-file-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.take-photo-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.take-photo-button svg {
+    margin-right: 5px;
+}
+
+.selected-image {
+    margin-top: 20px;
+    max-width: 300px;
+    height: auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+
