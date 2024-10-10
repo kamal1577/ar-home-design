@@ -1,10 +1,7 @@
-
-
-
-
 .photo-upload-container {
     text-align: center;
-    margin: 20px;
+    margin: 20px auto; /* Center the container */
+    max-width: 500px; /* Limit the width for better appearance */
 }
 
 .title {
@@ -18,6 +15,13 @@
     padding: 20px;
     margin-bottom: 20px;
     position: relative;
+    border-radius: 8px; /* Rounded corners for aesthetics */
+    background-color: #f9f9f9; /* Light background */
+    transition: border-color 0.3s ease; /* Transition effect for hover */
+}
+
+.drop-area:hover {
+    border-color: #007bff; /* Change border color on hover */
 }
 
 .drop-area p {
@@ -25,7 +29,7 @@
     color: #666;
 }
 
-.choose-file-button {
+.choose-file-button, .take-photo-button {
     background-color: #007bff;
     color: white;
     border: none;
@@ -34,29 +38,53 @@
     cursor: pointer;
     border-radius: 5px;
     margin-top: 10px;
+    transition: background-color 0.3s ease; /* Transition effect */
+}
+
+.choose-file-button:hover, .take-photo-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
 }
 
 .take-photo-button {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 10px;
+    background-color: #28a745; /* Green background for photo button */
+}
+
+.take-photo-button:hover {
+    background-color: #218838; /* Darker shade on hover */
 }
 
 .take-photo-button svg {
     margin-right: 5px;
 }
 
-.selected-image {
-    margin-top: 20px;
-    max-width: 300px;
-    height: auto;
-    border: 1px solid #ddd;
-    padding: 10px;
+.video-preview {
+    margin-top: 10px;
+    border: 1px solid #ccc; /* Add border around video preview */
+    border-radius: 8px; /* Rounded corners */
 }
 
+.selected-image {
+    margin-top: 20px;
+    max-width: 100%; /* Ensure it doesn't overflow */
+    height: auto;
+    border: 1px solid #ddd;
+    padding: 5px; /* Padding around selected image */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
 
+/* Responsive design */
+@media (max-width: 600px) {
+    .title {
+        font-size: 20px; /* Smaller title on small screens */
+    }
+
+    .drop-area {
+        padding: 15px; /* Less padding on small screens */
+    }
+
+    .choose-file-button, .take-photo-button {
+        width: 100%; /* Full width buttons on small screens */
+        padding: 12px; /* Slightly larger padding */
+    }
+}
